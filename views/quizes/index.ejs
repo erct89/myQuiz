@@ -1,0 +1,43 @@
+<div id="filterForm">
+	<form action="/quizes" method="get">
+		<label><span>Filtrar preguntas:</span></label>
+		<input type="search" name="search" placeholder="Buscar">
+		<input type="submit" value="Buscar">
+	</form>
+</div>
+<div>
+	<% if(quizes.length > 0){ %>
+	<table>
+		<tr>
+			<th>Preguntas</th>
+			<th>Tematica</th>
+			<th></th>
+		</tr>
+	<% 	for(var i=0; i < quizes.length; i++){ %>
+		<tr>
+			<td>
+				<a href="/quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a>
+			</td>
+			<td>
+				<em class="minitext etiqueta"><%=quizes[i].tema%></em>
+			</td>
+			<td>
+				<a href="/quizes/<%= quizes[i].id %>/edit"><button>Editar</button></a>
+			</td>
+			<td>
+				<form method="POST" action="/quizes/<%= quizes[i].id %>?_method=delete">
+					<button type="submit" onclick="return confirm('¿Deses borrar la pregunta?');">Borrar</button>
+				</form>
+				
+			</td>
+		</tr>
+	<% 	} %>
+	</table>
+	<% } else{ %>
+		<h3>Ninguna pregunta encontrada.</h3>
+		<p>Actualmente no existe ninguna preguntas que contenga: <em><%=like%></em>.</p>
+	<% } %>
+</div>
+<div>
+	<a href="/quizes/new">Crear Pregunta</a>
+</div>

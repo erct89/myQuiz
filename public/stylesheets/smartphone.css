@@ -1,0 +1,18 @@
+body{
+	background: #333;
+}
+
+h1 span, section h2 {
+	display: none;
+}
+
+iframe{
+	width: 100%;
+}
+
+border-style: {
+	font-size: xx-large;
+}
+footer, input{
+	font-size: large;
+}

@@ -1,0 +1,30 @@
+
+<div class="author">
+	<article>
+		<header>
+			<% if(author.length === 1 && i === 0){ %>
+				<h2>Author</h2>
+			<% }else if (author.length > 1 && i === 0) {};{%>
+				<h2>Authores</h2>
+			<% }%>
+		</header>
+	
+		<main>
+			<% for(var i = 0; i<author.length;i++){ %>
+				<figure>
+					<img src='<%=author[i].foto%>' class="fotoAutor">
+					<figcaption>Foto del autor.</figcaption>
+				</figure>
+				<p>
+					<span>Nombre:</span> <%= author[i].nombre %><br/>
+					<span>Apellidos:</span> <%= author[i].apellidos%>
+				</p>	
+				<% if(author[i].video.length > 0){ %>
+					<iframe width="420" height="315" src="<%= author[i].video%>" frameborder="0" allowfullscreen></iframe>
+				<%}%>
+			<%}%>
+		</main>
+	</article>
+</div>
+
+

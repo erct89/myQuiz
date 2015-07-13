@@ -1,0 +1,17 @@
+<div>
+	<form action="/quizes/<%=quiz.id%>/answer" method="get" accept-charset="utf-8">
+		<p>Pregunta: <%= quiz.pregunta%></p>
+		<div class="minitext"><p>Tematica: <em class="etiqueta"><%= quiz.tema %></em></p><div>
+		<input type="text" name="respuesta" placeholder="Respuesta"/>
+		<input type="submit" value="Enviar">
+	</form>
+</div>
+<div>
+	<p><a href="/quizes/<%=quiz.id%>/comments/new"><button type="button">Crear Comentario</button></a></p>
+	<h4>Comentarios</h4>
+	<ul>
+	<%for(var c in quiz.Comments){%>
+		<li><p><%= quiz.Comments[c].texto %></p></li>
+	<%}%>
+	</ul>
+</div>
