@@ -1,7 +1,7 @@
 <div>
 	<form action="/quizes/<%=quiz.id%>/answer" method="get" accept-charset="utf-8">
 		<p>Pregunta: <%= quiz.pregunta%></p>
-		<div class="minitext"><p>Tematica: <em class="etiqueta"><%= quiz.tema %></em></p><div>
+		<div class="minitext"><p>Tematica: <em class="etiqueta etiquetaAzul textoAzul"><%= quiz.tema %></em></p><div>
 		<input type="text" name="respuesta" placeholder="Respuesta"/>
 		<input type="submit" value="Enviar">
 	</form>

@@ -102,7 +102,7 @@ label{
 	color: #505050;
 }
 
-input[type="search"],input[type="text"],input[type="submit"],button,select{
+input[type="search"],input[type="password"],input[type="text"],input[type="submit"],button,select{
 	font-family: 'Raleway', sans-serif;
 	font-size: initial;
 	padding: 5px 0.5em;
@@ -134,7 +134,19 @@ input[type="submit"]:hover{
 .etiqueta{
 	display: inline;
 	padding: 1px 5px;
-	border: 1px solid #00B7FF;
-	color: #00B7FF;
+	border: 1px solid;
+	
 	border-radius: 10px;
+}
+.textoAzul{
+	color: #00B7FF;
+}
+.bordeAzul{
+	border-color: #00B7FF;
+}
+.textoGris{
+	color: #505050;
+}
+.bordeGris{
+	border-color: #505050;
 }
