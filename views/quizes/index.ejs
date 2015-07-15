@@ -21,6 +21,7 @@
 			<td>
 				<em class="minitext etiqueta etiquetaAzul textoAzul"><%=quizes[i].tema%></em>
 			</td>
+			<% if(session.user) { %>
 			<td>
 				<a href="/quizes/<%= quizes[i].id %>/edit"><button>Editar</button></a>
 			</td>
@@ -30,6 +31,7 @@
 				</form>
 				
 			</td>
+			<% } %>
 		</tr>
 	<% 	} %>
 	</table>
@@ -38,6 +40,8 @@
 		<p>Actualmente no existe ninguna preguntas que contenga: <em><%=like%></em>.</p>
 	<% } %>
 </div>
+<% if (session.user) {%>
 <div>
 	<a href="/quizes/new">Crear Pregunta</a>
 </div>
+<% } %>

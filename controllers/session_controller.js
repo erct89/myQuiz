@@ -1,3 +1,12 @@
+//Funcion de comprobacion de autenticacion.
+exports.logRequired = function(req, res, next){
+	if(req.session.user){
+		next();
+	}else{
+		res.redirect('/login');
+	}
+}
+
 //GET /login redireccion a la vista para login.
 exports.new = function (req, res) {
 	var errors = req.session.errors || {};
@@ -15,7 +24,7 @@ exports.create = function (req, res){
 	userController.autenticar(login,password,function(error, user){
 		
 		if(error){
-			req.session.errors = [{"message":'Se ha producido un error:'+error}];
+			req.session.errors = [{"message":error.message}];
 			res.redirect("/login");
 			return;
 		}

@@ -150,3 +150,6 @@ input[type="submit"]:hover{
 .bordeGris{
 	border-color: #505050;
 }
+table{
+	width: 100%;
+}

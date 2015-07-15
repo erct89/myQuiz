@@ -1,4 +1,6 @@
 var models = require('../models/models.js');
+
+
 //AutoLoad carga quiz para comprobar si existe algún error.
 exports.load= function(req, res, next, quizId){
 	models.Quiz.findOne({
@@ -16,6 +18,7 @@ exports.load= function(req, res, next, quizId){
 	});
 
 };
+
 
 //GET /quizes
 exports.index = function(req,res){
@@ -44,6 +47,7 @@ exports.index = function(req,res){
 	});
 };
 
+
 //GET /quizes/:quizId(\\d+)
 exports.show = function(req,res){
 	res.render('quizes/show',{
@@ -51,6 +55,7 @@ exports.show = function(req,res){
 		errors:[]
 	});
 };
+
 
 //GET /quizes/:quizId(\\d+)/answer
 exports.answer = function(req,res){
@@ -65,6 +70,7 @@ exports.answer = function(req,res){
 	});
 };
 
+
 //GET /quizes/new
 exports.new = function(req,res){
 	var quiz = models.Quiz.build(
@@ -72,6 +78,7 @@ exports.new = function(req,res){
 		);
 	res.render("quizes/new",{quiz: quiz, errors:[]});
 };
+
 
 //POST /quizes/create
 exports.create = function(req, res) {
@@ -92,6 +99,7 @@ exports.create = function(req, res) {
     
 };
 
+
 //GET /quizes/:quizId(\\d+)/edit
 exports.edit = function(req,res){
 	var quiz = req.quiz;
@@ -100,6 +108,7 @@ exports.edit = function(req,res){
 		errors:[]
 	});
 };
+
 
 //PUT /quizes/:quizId(\\d+)/edit
 exports.update = function(req,res){
@@ -122,6 +131,7 @@ exports.update = function(req,res){
 		}
 	});
 };
+
 
 //DELETE /quizes/:quizId(\\d+)
 exports.destroy = function(req,res){

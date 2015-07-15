@@ -11,7 +11,15 @@
 	<h4>Comentarios</h4>
 	<ul>
 	<%for(var c in quiz.Comments){%>
-		<li><p><%= quiz.Comments[c].texto %></p></li>
+		<% if(session.user || quiz.Comments[c].publicado) { %>
+		<li>
+			<p><%= quiz.Comments[c].texto %>
+			<% if(session.user && !quiz.Comments[c].publicado) { %>
+				<a href="/quizes/<%= quiz.id %>/comments/<%= quiz.Comments[c].id %>/publish" class="etiqueta">Publicar</a>
+			<% } %>
+			</p>
+		</li>
+		<% } %>
 	<%}%>
 	</ul>
 </div>

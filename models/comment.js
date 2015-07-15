@@ -8,6 +8,10 @@ module.exports = function (sequelize, DataTypes) {
 					msg:"Falta el comentario"
 				}
 			}
+		},
+		publicado:{
+			type: DataTypes.BOOLEAN,
+			defaultValue:false
 		}
 	});
 };
