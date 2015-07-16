@@ -27,6 +27,7 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(partials());
 
+
 //Mideleware para capturar la direccion de las rutas diferentes a login y logout
 app.use(function(req,res,next){
   if(!req.path.match(/\/login|\/logout/)){
@@ -35,6 +36,25 @@ app.use(function(req,res,next){
   res.locals.session = req.session;
   next();
 });
+
+
+//Mideleware para realizar un auto_logaut pasados 2 minutos sin cambiar de pagina.
+app.use(function(req,res,next){
+  var fechaActual = new Date().getTime();
+  var minutosTranscurridos;
+  if(req.session.user){
+    if(req.session.autologout){
+      minutosTranscurridos = ((fechaActual - req.session.autologout)/1000)/60;
+      if(minutosTranscurridos > 2){
+        delete req.session.autologout; //Lo borro para evitar problemas.
+        res.redirect('/logout');
+      }
+    }
+    req.session.autologout = new Date().getTime();
+  }
+  next();
+});
+
 
 app.use('/', routes);
 
