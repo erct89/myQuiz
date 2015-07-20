@@ -35,7 +35,8 @@ exports.index = function(req,res){
 			pregunta:{
 				$like:like
 			}
-		}
+		},
+		order:[['id','ASC']]
 	}).then(function(quizes){
 		res.render('quizes/index',{
 			quizes:quizes,
