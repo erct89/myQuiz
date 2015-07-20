@@ -13,5 +13,17 @@ module.exports = function (sequelize, DataTypes) {
 			type: DataTypes.BOOLEAN,
 			defaultValue:false
 		}
+	},
+	{
+		classMethods:{
+			comentariosNoPublicados: function(){
+				return this.aggregate('QuizId','count',{'where':{'publicado':false}})
+				.then('succes',function(count){return count});
+			},
+			comentariosPorPregunta: function(){
+				return this.aggregate('QuizId','count',{'distinct':true})
+				.then('succes',function(count){return count});
+			}
+		}
 	});
 };

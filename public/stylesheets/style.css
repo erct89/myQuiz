@@ -153,3 +153,7 @@ input[type="submit"]:hover{
 table{
 	width: 100%;
 }
+
+ul{
+	list-style: none;
+}

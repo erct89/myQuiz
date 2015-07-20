@@ -1,0 +1,12 @@
+<div>
+	<h2>Estadisticas</h2>
+	<ul>
+		<li>Nº preguntas: <%= statistics.quizes %></li>
+		<li>Nº comentarios: <%= statistics.comments %></li>
+		<li>Nº preguntas con comentario: <%= statistics.commentsQuizes %></li>
+		<li>Nº preguntas sin comentario: <%= statistics.quizes - statistics.commentsQuizes %></li>
+		<li>Nº comentarios publicados: <%= statistics.comments - statistics.commentsUnPublished %></li>
+		<li>Nº comentarios no Publicados: <%= statistics.commentsUnPublished %></li>
+		<li>Media comentarios por pregunta: <%= statistics.quizes?(statistics.comments/statistics.commentsQuizes).toFixed(2):0 %></li>		
+	</ul>
+</div>
